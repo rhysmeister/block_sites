@@ -4,7 +4,8 @@
 set -u;
 set -e;
 
-declare -a domains=('facebook.com' 'instagram.com');
+action=$1; 
+declare -a domains=('facebook.com' 'linkedin.com');
 
 function block_domains()
 {
@@ -22,5 +23,10 @@ function unblock_domains()
 	done;	
 }
 
-#block_domains $domains;
-unblock_domains $domains;
+if [ $action == "block" ]; then
+	block_domains $domains;
+elif [ $action == "unblock" ]; then
+	unblock_domains $domains;
+else
+	echo "Unknown action: Must be block or unblock.";
+fi;
