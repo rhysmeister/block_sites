@@ -29,4 +29,5 @@ elif [ $action == "unblock" ]; then
 	unblock_domains $domains;
 else
 	echo "Unknown action: Must be block or unblock.";
+	echo "Usage: ./block_sites.sh block|unblock";
 fi;
